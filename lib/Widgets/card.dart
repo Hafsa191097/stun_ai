@@ -23,17 +23,19 @@ class _CharacterCardState extends State<CharacterCard> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    const SizedBox(height: 20,),
                     Stack(
                       children: [
+                        
                         Container(
                           width: MediaQuery.of(context).size.width*0.9,
-                          height: MediaQuery.of(context).size.height*0.7,
+                          height: MediaQuery.of(context).size.height*0.6,
                           clipBehavior: Clip.antiAlias,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(4),
                           ),
                           child: Image.asset(
-                            'assets/profile.png',
+                            'assets/profile.jpg',
                             height: 135,
                             fit: BoxFit.cover,
                           ),
