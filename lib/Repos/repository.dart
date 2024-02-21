@@ -1,5 +1,4 @@
 import 'dart:developer';
-import 'dart:io';
 
 import 'package:dio/dio.dart';
 
@@ -10,7 +9,7 @@ class GenarateImageRepository {
 
       Map<String, dynamic> header = {
         'Authorization':
-            'Bearer vk-idWEpD8fpmqDBuWJZnr3ZgokPoY3EEloQl56M2zlLwyIEe',
+            'Bearer ',
       };
 
       Map<String, dynamic> payload = {
