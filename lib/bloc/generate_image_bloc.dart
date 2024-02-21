@@ -1,9 +1,11 @@
 import 'dart:async';
+import 'dart:developer';
 import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:meta/meta.dart';
 
 import '../Repos/repository.dart';
@@ -29,19 +31,21 @@ class GenerateImageBloc extends Bloc<GenerateImageEvent, GenerateImageState> {
   }
 
   Future<Uint8List> loadImageAsUint8List(String path) async {
-  final File file = File(path);
-  return await file.readAsBytes();
+  final ByteData data = await rootBundle.load(path);
+  Uint8List bytes = data.buffer.asUint8List();
+  return bytes;
+  
   }
 
   FutureOr<void> generateInitialEvent(
       GenerateInitialEvent event, Emitter<GenerateImageState> emit) async {
 
     try {
-      Uint8List bytes = await File('C:/Users/Hafsa_Mehmood/Desktop/Flutter_Tasks/stun_ai-main/stun_ai/assets/image.png').readAsBytes();
-      emit(SuccessState(file: bytes));
+      final Uint8List imageData = await loadImageAsUint8List('assets/image.png');
+      emit(SuccessState(file: imageData));
     } catch (e) {
-      print('Error loading image: $e');
-      // emit(ErrorState());
+      log('Error loading image: $e');
+      emit(ErrorState());
     }
   }
 }

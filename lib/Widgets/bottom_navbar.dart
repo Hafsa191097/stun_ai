@@ -38,9 +38,9 @@ class BottomnavBar extends StatelessWidget {
             onPressed: () { 
               Navigator.pushNamed(context, HomeScreen.route);
             }, 
-           icon: const Icon(Icons.group_add_outlined),
+           icon: const Icon(Icons.favorite_outline),
           ),
-          label: 'Community',
+          label: 'Favorites',
         ),
          BottomNavigationBarItem(
           icon: IconButton(

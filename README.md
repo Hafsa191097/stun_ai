@@ -1,4 +1,4 @@
-# stun_ai
+# Stun Ai
 
 A new Flutter project.
 
